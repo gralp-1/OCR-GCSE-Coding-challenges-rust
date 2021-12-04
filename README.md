@@ -1,0 +1,2 @@
+## What is this?
+This is a repo with solutions to the OCR GCSE programming project questions, a list of which can be found [here](https://www.ocr.org.uk/Images/503195-programming-project-tasks-june-2019-and-june-2020.pdf). These are all done in rust.

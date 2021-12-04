@@ -192,6 +192,7 @@ dependencies = [
  "prettytable-rs",
  "rand",
  "regex",
+ "serde",
  "serde_json",
 ]
 
