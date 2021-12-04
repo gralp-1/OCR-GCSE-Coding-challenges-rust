@@ -64,21 +64,26 @@ pub fn run() {
 
 }
 
-
-// Gets the name from terminal, and validates it with regex and returns a player
-fn auth(count: u8) -> Player{
-    let mut line = String::new();
-    
-    println!("Enter Player {} name:", count);
-    std::io::stdin().read_line(&mut line).unwrap().to_string();
-
-    let player = Player {
-        name: line.to_owned().replace("\n", ""),
-        score: 0
-    };
-    return player;
+// Just a struct to hold player info
+pub struct Player {
+	name: String,
+	score: i32
 }
 
+
+// Gets the name from terminal, and validates it with regex and returns a player
+pub fn auth(count: u8) -> Player{
+	let mut line = String::new();
+	
+	println!("Enter Player {} name:", count);
+	std::io::stdin().read_line(&mut line).unwrap().to_string();
+    
+	let player = Player {
+	    name: line.to_owned().replace("\n", ""),
+	    score: 0
+	};
+	return player;
+}
 
 // runs one round of the game
 fn round(player_1: &Player, player_2: &Player) -> [i32; 2]{
@@ -116,9 +121,5 @@ fn calc_score(roll_1: i32, roll_2: i32) -> i32 {
     return total;
 }
 
-// Just a struct to hold player info
-struct Player {
-    name: String,
-    score: i32
-}
+
 
