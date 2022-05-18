@@ -4,6 +4,7 @@ use serde_json::*;
 use std::fs::File;
 use std::io::Read;
 use prettytable::*;
+mod utils
 /*
 Noel is creating a music quiz game.
 The  game  stores  a  list  of  song  names  and  their  artist
@@ -33,7 +34,7 @@ a song incorrectly on the second chance.
 
 // TODO: write playerdata (steps 7 & 8)
 pub fn run() {
-    let mut player = auth(1);
+    let mut player = utils::auth(1);
     player.score += round();
     println!("Final Score: {}", player.score);
 }
@@ -103,11 +104,6 @@ fn load_songs() -> Value {
     return json.to_owned();
 }
 
-// Just a struct to hold player info
-struct Player {
-    name: String,
-    score: i32,
-}
 
 #[derive(Debug)]
 struct Song {
@@ -116,15 +112,3 @@ struct Song {
 }
 
 // Gets the name from terminal, and validates it with regex and returns a player
-fn auth(count: u8) -> Player {
-    let mut line = String::new();
-
-    println!("Enter Player {} name:", count);
-    std::io::stdin().read_line(&mut line).unwrap().to_string();
-
-    let player = Player {
-        name: line.to_owned().replace("\n", ""),
-        score: 0,
-    };
-    return player;
-}
